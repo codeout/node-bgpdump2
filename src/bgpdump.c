@@ -622,7 +622,7 @@ main (int argc, char **argv)
       if (benchmark)
         benchmark_start ();
 
-      if (lookup)
+      if (peer_spec_size)
         {
           for (i = 0; i < peer_spec_size; i++)
             {
@@ -631,6 +631,12 @@ main (int argc, char **argv)
                 ptree_list (peer_ptree[i]);
               ptree_query (peer_ptree[i], query_table, query_size);
             }
+        }
+      else
+        {
+          if (verbose)
+            ptree_list (ptree[qaf]);
+          ptree_query (ptree[qaf], query_table, query_size);
         }
 
       if (benchmark)

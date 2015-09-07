@@ -664,7 +664,6 @@ bgpdump_process_table_v2_rib_entry (int index, char **q,
             }
         }
 
-#if 0
       if (lookup || heatmap)
         {
           struct bgp_route *rp;
@@ -683,7 +682,6 @@ bgpdump_process_table_v2_rib_entry (int index, char **q,
           ptree_add ((char *)&rp->prefix, rp->prefix_length,
                      (void *)rp, ptree[safi]);
         }
-#else
 
       if (peer_spec_size)
         {
@@ -709,7 +707,6 @@ bgpdump_process_table_v2_rib_entry (int index, char **q,
             ptree_add ((char *)&rp->prefix, rp->prefix_length,
                        (void *)rp, peer_ptree[peer_spec_i]);
         }
-#endif
 
       if (udiff)
         {
