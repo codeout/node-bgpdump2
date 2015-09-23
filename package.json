@@ -1,0 +1,33 @@
+{
+  "name": "node-bgpdump2",
+  "description": "NodeJS binding of bgpdump2",
+  "version": "0.1.0",
+  "author": "Shintaro Kojima <goodies@codeout.net>",
+  "license": "MIT",
+  "keywords": [
+    "bgpdump",
+    "bgpdump2",
+    "mrt",
+    "routes",
+    "bgp",
+    "longest-match"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/codeout/node-bgpdump2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/codeout/node-bgpdump2/issues"
+  },
+  "dependencies": {
+    "bindings": "^1.2.1",
+    "nan": "^2.0.9"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  }
+}
