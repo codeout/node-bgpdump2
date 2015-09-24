@@ -19,15 +19,17 @@
   "bugs": {
     "url": "https://github.com/codeout/node-bgpdump2/issues"
   },
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "coffee-script": "^1.10.0",
+    "mocha": "^2.3.3"
+  },
   "dependencies": {
     "bindings": "^1.2.1",
     "nan": "^2.0.9"
   },
-  "devDependencies": {
-    "grunt": "^0.4.5"
-  },
   "main": "index.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "curl -s http://archive.routeviews.org/route-views.wide/bgpdata/2015.09/RIBS/rib.20150924.0000.bz2 > test/rib.bz2; mocha --compilers coffee:coffee-script/register"
   }
 }
