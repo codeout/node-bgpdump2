@@ -1,1 +1,2 @@
-var bgpdump = require('bindings')('bgpdump2')
+var addon = require('bindings')('bgpdump2')
+module.exports = addon.BGPDump2
