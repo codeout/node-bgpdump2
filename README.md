@@ -1,5 +1,7 @@
 # node-bgpdump2
 
+[![Build Status](https://travis-ci.org/codeout/node-bgpdump2.svg)](https://travis-ci.org/codeout/node-bgpdump2)
+
 ## Description
 
 NodeJS binding of [bgpdump2](https://github.com/yasuhiro-ohara-ntt/bgpdump2).
