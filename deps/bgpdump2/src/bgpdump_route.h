@@ -19,7 +19,7 @@
 #ifndef _BGPDUMP_ROUTE_H_
 #define _BGPDUMP_ROUTE_H_
 
-#define ROUTE_LIMIT_DEFAULT "1000K"
+#define ROUTE_LIMIT_DEFAULT "2000K"
 #define ROUTE_PATH_LIMIT 128
 
 #include "bgpdump.h"
