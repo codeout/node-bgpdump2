@@ -96,6 +96,7 @@ extern "C" {
             char buf[64];
             inet_ntop (qaf, query, buf, sizeof (buf));
             printf ("%s: no route found.\n", buf);
+            return NULL;
           }
       }
   }
@@ -232,22 +233,33 @@ void BGPDump2::Lookup(const Nan::FunctionCallbackInfo<v8::Value>& info) {
   char prefix[256];
   extern uint64_t query_size;
   query_limit = 1;
-  query_init ();
 
   if(qprefixes.size()==1) {
     query_size = 0;
+    query_init ();
     strcpy(prefix, qprefixes.at(0).c_str());
+
     query_addr (prefix);
     bgp_route* route = ptree_query2 (ptree[qaf], query_table, query_size);
-    info.GetReturnValue().Set(CreateObject(route));
+
+    if(route==NULL)
+      info.GetReturnValue().SetNull();
+    else
+      info.GetReturnValue().Set(CreateObject(route));
   } else {
     Local<Array> result = Nan::New<Array>(qprefixes.size());
     for(int i = 0; i < qprefixes.size(); i++) {
       query_size = 0;
+      query_init ();
       strcpy(prefix, qprefixes.at(i).c_str());
+
       query_addr (prefix);
       bgp_route* route = ptree_query2 (ptree[qaf], query_table, query_size);
-      result->Set(i, CreateObject(route));
+
+      if(route==NULL)
+        result->Set(i, Nan::Null());
+      else
+        result->Set(i, CreateObject(route));
     }
 
     info.GetReturnValue().Set(result);

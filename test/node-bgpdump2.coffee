@@ -40,3 +40,22 @@ describe 'node-bgpdump2', ->
       expect(result[1]['nexthop']).to.equal '202.249.2.169'
       expect(result[1]['origin_as']).to.equal 2914
       expect(result[1]['as_path']).to.equal '2497 2914'
+
+  describe 'invalid host address', ->
+    it 'returns null', ->
+      expect(@bgpdump.lookup('8.8.8.8/32')).to.be.null
+      expect(@bgpdump.lookup('invalid')).to.be.null
+
+  describe 'multiple arguments including invalid host address', ->
+    it 'returns array including null', ->
+      result = @bgpdump.lookup('8.8.8.8', '8.8.8.8/32')
+
+      expect(result[0]).not.to.be.null
+      expect(result[1]).to.be.null
+
+  describe 'valid & invalid host address as an argument', ->
+    it 'returns array including null', ->
+      result = @bgpdump.lookup('8.8.8.8/32', '8.8.8.8')
+
+      expect(result[1]).not.to.be.null
+      expect(result[0]).to.be.null
