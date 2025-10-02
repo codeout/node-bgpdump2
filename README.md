@@ -1,7 +1,6 @@
 # node-bgpdump2
 
 [![Build Status](https://travis-ci.org/codeout/node-bgpdump2.svg)](https://travis-ci.org/codeout/node-bgpdump2)
-[![Code Climate](https://codeclimate.com/github/codeout/node-bgpdump2.png)](https://codeclimate.com/github/codeout/node-bgpdump2)
 
 ## Description
 
